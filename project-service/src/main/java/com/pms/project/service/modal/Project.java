@@ -1,4 +1,4 @@
-package com.task.service.model;
+package com.pms.project.service.modal;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,24 +16,41 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Task {
+public class Project {
+
+//    create the modal for projects
+
+
+    // project id
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    // project name(title)
     private String title;
 
+    // project description
     private String description;
 
+    // image for the project
     private String image;
 
+    // id of the user assigned to the project
     private Long assignedUserId;
 
+    // tags for the project
     private List<String> tags = new ArrayList<>();
 
-    private LocalDateTime deadline;
+//    status of project(
+//            PENDING,
+//            ASSIGNED or
+//            DONE)
+    private ProjectStatus status;
 
+    // project deadline date and time
+    private LocalDateTime deadLine;
+
+    // project created date and time
     private LocalDateTime createdAt;
 
-    private TaskStatus status;
 }
