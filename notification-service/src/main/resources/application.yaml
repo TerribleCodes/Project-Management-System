@@ -1,0 +1,32 @@
+server:
+  port: 8090
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/pms
+    username: root
+    password: MysqlRoot@2024
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update                        # Use 'update' for development, 'validate' for production
+    show-sql: true                            # Show SQL queries in the console
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false        # Properly format dates (optional)
+
+logging:
+  level:
+    org:
+      hibernate: debug                        # Optional: show Hibernate debug logs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"                          # Expose all actuator endpoints (optional)
